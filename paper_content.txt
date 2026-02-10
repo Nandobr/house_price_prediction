@@ -1,0 +1,729 @@
+EUROPEAN JOURNAL OF APPLIED SCIENCE, ENGINEERING AND TECHNOLOGY (ISSN 2786-9342) 
+  VOLUME 3, ISSUE 3 (MAY-JUNE 2025) 
+  WWW.EJASET.COM 
+ 
+This work is licensed under a Creative Commons Attribution 4.0 International 
+License. The license permits unrestricted use, distribution, and reproduction in 
+any medium, on the condition that users give exact credit to the original author(s) 
+and the source, provide a link to the Creative Commons license, and indicate if 
+they made any changes. 
+404 
+  
+ 
+Using Artificial Intelligence-Based Machine Learning  
+Regression Models for Predictions of Home Prices 
+Mukund Sai Vikram Tyagadurgam  
+University of Illinois at Springfield, USA 
+Venkataswamy Naidu Gangineni 
+University of Madras, Chennai, India 
+Sriram Pabbineedi 
+University of Central Missouri, USA 
+Ajay Babu Kakani 
+Wright State University, USA 
+Sri Krishna Kireeti Nandiraju 
+University of Illinois at Springfield, USA 
+Sandeep Kumar Chundru 
+University of Central Missouri, USA 
+ 
+Article History:  
+Received: 27.05.2025 Revised: 16.05.2025 Accepted: 18.06.2025 Published: 18.06.2025 
+ABSTRACT: 
+Accurate forecast of home prices is crucial in making informed decisions in real estate, financial 
+plans and investment practices. This work exploits the Volusia County Property Sales Dataset to 
+create a strong machine learning model for predicting home prices. By undertaking extensive data 
+preprocessing, feature engineering, and transformation of the outcome and having an XGBoost 
+regression model as a result, we trained and measured its performance Metrics include R², MSE, 
+and MAE.  The XGBoost model outperformed baseline models such as Random Forest (R² = 0.87) 
+and Artificial Neural Networks (ANN) with R² = 0.97, MSE - 8.17, and MAE = 4.03, R² = 0.84. 
+These results show the effectiveness and accuracy of XGBoost when identifying complex, 
+nonlinear relations in the housing data. The proposed pipeline is scalable and can be adapted to 
+fit into live property valuation systems, lending valuable insights to stakeholders in urban planning, 
+real estate investments, and public policy formulations. 
+Keywords: Home Price Prediction, XGBoost, Machine Learning (ML), Regression Models, 
+Predictive Modelling. 
+Suggested Citation: M.S.V. Tyagadurgam, V.N. Gangineni, S. Pabbineedi, A.B. Kakani, S.K.K. 
+Nandiraju, S.K. Chundru, " Using Artificial Intelligence- Based Machine Learning Regression 
+Models for Predictions of Home Prices ," Eur. J. Appl. Sc. Eng. Technol. , vol. 3(3), pp. 404-416, 
+May-Jun 2025. DOI: 10.59324/ejaset.2025.3(3).29 
+ 
+ 
+ 
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+405 
+INTRODUCTION 
+The industry of real estate is the bedrock of an economic upturn with an enormous influence on the 
+wealth of people, national economies, and financial markets. Precise price prediction of homes is 
+critical, and has implications to decisions of homeowners, investors, developers and policy makers 
+in this field [1,2]. With the fluctuations in the supply and demand and interest rates, and the 
+demographic trends and urban development, reliable pricing models are needed to make sense of 
+this complexity. Conventionally at home valuation, a heuristic approach or simple linear regression 
+model involving human appraisals with comparative market analysis has always been relied upon. 
+Although these approaches have been commonplace, they are not capable of recording the 
+multidimensional relationships and nonlinear trends that are inherent in housing markets [3,4]. From 
+this increasing volume and diversity of data relating to housing, the traditional methods are doing 
+their best to provide a constant level of accuracy, which most time results in biased or antiquated 
+estimation, which is not reciprocal to real-time market dynamics. AI and ML, in turn, have appeared 
+as the radically transformative technologies that can transform real estate analytics. As a subsection 
+of AI, ML is particularly good at finding patterns in a large data set, learning, and offering predictive 
+insights without requiring explicit programming of all situations [5]. In the case of a home price 
+prediction, there are major benefits from using these ML regression models in contrast with the 
+standard methods [6]. They are designed to handle complicated relationships between the features, 
+like property size, location, amenities, construction year, and neighbourhood demographics, and 
+tools for handling high dimensional data [7]. From historical data, these algorithms are able to make 
+highly accurate estimates concerning price that is essential for strategic planning and competitive 
+advantage when it comes to real estate transactions. Besides, ML models eliminate the human -
+related error and bias, because data-based decisions are used instead of subjective judgment, and 
+the pricing process becomes more objective and reproducible. Flexibility and the performance ability 
+in various real estate markets are one of the strongest strengths of the AI -based regression model 
+[8]. Methods like decision tree ensembles, SVM, and neural networks have proven considerable 
+potential in nonlinearity and interaction between variables, which are normally not taken into account 
+by previous model-based systems. These tools not only increase the accuracy of forecasts but also 
+permit the interpretation of which variables have the greatest impact on the fluctuation of price [9] . 
+For instance, feature importance analysis will tell which neighbourhood attributes, structural 
+characteristics or economic indicators have maximum predictive power for the value of a property. 
+This level of awareness can empower the stakeholders to understand the behaviour of market and 
+make better decisions on pricing strategies, investment risk and distribution of resources [10].  
+Since the real estate world continues to move with the trend of digitization and access to big data, 
+there is no longer an innovation in integrating AI into predictive modelling but rather a requirement 
+[11]. ML models' capacity to handle massive volumes of organized and unstructured data helps keep 
+them in sync with market circumstances and forecast trends more correctly [12]. As distributed 
+datasets of open properties and enhanced computational power become more available, there is an 
+unparalleled opportunity to improve models of home price prediction and achieve new levels of 
+accuracy and depth [13]. This paradigm shift is a major step forward in the methods of studying the 
+housing markets from experience-based guesswork to intelligent data-based solutions [14]. 
+Big Data is characterized by 5V’s: Volume, Velocity, Variety, Veracity and Value. Volume signifies 
+the magnitude of data, often substantial in size. Velocity denotes the rate at which diverse data 
+streams are in [2]. Variety pertains to the intricacy of both structured and unstructured data 
+originating from diverse sources. Veracity pertains to the accuracy of obtained data and can tackle 
+quality concerns such as noise or absent values. Value is the subsequent quality aspect crucial for 
+locating pertinent data for analysis. Techniques like Classification, Prediction, Clustering, 
+Dimensionality Reduction, Regression, Artificial Neural Network, and Outlier Analysis from data 
+mining and Machine Learning is employed to discern patterns in fraudulent tr ansactions using 
+gleaned data.  
+Big Data is characterized by 5V’s: Volume, Velocity, Variety, Veracity and Value. Volume signifies 
+the magnitude of data, often substantial in size. Velocity denotes the rate at which diverse data 
+streams are in [2]. Variety pertains to the intricacy of both structured and unstructured data 
+originating from diverse sources. Veracity pertains to the accuracy of obtained data and can tackle 
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+406 
+quality concerns such as noise or absent values. Value is the subsequent quality aspect crucial for 
+locating pertinent data for analysis. Techniques like Classification, Prediction, Clustering, 
+Dimensionality Reduction, Regression, Artificial Neural Networ k, and Outlier Analysis from data 
+mining and Machine Learning is employed to discern patterns in fraudulent tr ansactions using 
+gleaned data. 
+Motivation and Contribution of the Study 
+The reason for which this study is initiated from the growing need for correct and smart real estate 
+valuation tools in a volatile housing market. Traditional methods of valuation rely so much on manual 
+assessment or systems based on heuristics, which may lead to inefficiency, inconsistency and lack 
+of scalability. With the emergence of AI and ML, there is a great prospect of automating systems that 
+give more accurate data-based predictions. This research is aimed at improving the accuracy of the 
+prediction of the price of a home by advanced ML regression techniques, using real -world data of 
+property transactions. The following contributions are the main findings of this research: 
+• Utilization of the Voluspa County Property Sales Dataset, which offers comprehensive real estate 
+transaction data suitable for predictive modelling. 
+• Enhances data quality through data cleaning, outlier detection and removal, improving the 
+precision and resilience of the model. 
+• Performs feature engineering and selection to identify and construct relevant property attributes 
+that significantly influence home prices. 
+• Applies data transformation and target binning techniques to improve the structure and distribution 
+of input features and the target variable. 
+• Implements the XGBoost regression model, distinguished by its effectiveness and capacity to 
+represent intricate, non-linear connections in tabular data. 
+• Evaluates the model’s performance using R², MSE, and MAE to ensure accurate and reliable 
+predictions. 
+• Enables informed decision-making in real estate by providing a scalable and intelligent pipeline for 
+home price prediction. 
+Novelty of the Paper 
+The novelty of this research lies in applying a robust AI -based pipeline using XGBoost to predict 
+home prices with high accuracy. It incorporates comprehensive pre-processing, feature engineering, 
+and target binning to enhance model performance. A two- phase modelling strategy refines 
+predictions. Comparative analysis demonstrates XGBoost’s superior performance, surpassing 
+existing models. This pipeline improves real estate analytics. 
+ 
+LITERATURE REVIEW 
+This section reviews and highlights the part that AI -driven ML regression models play in predictive 
+analytics for estimating residential property values. Some of the reviewed works are: 
+Jiang and Shen (2019) study uses chain house network housing data is being utilized to forecast 
+Shanghai's used house prices. They make use of a feedforward neural network model with many 
+layers, a Beautiful Soup parser, and crawler technology. The relative error of the model with 
+Gaussian noise is 95.59%, proving effective in house price forecasting [15]. 
+Luo (2019) this paper explores the use of micro factors like lot area and pool area to predict house 
+prices in residential assets. A simple regression model is fitted, and SVM and RF are two examples 
+of ML techniques that are employed.  The findings indicate that all regression models have an R -
+squared greater than 0.9, indicating a strong match for asset pricing [16]. 
+Ghosalkar and Dhage (2018). The property market is a highly competitive field that uses ML to 
+predict and enhance costs accurately. Factors influencing house prices include physical attributes, 
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+407 
+ideas, and setting. This paper aims to anticipate house price for customers depending on their 
+requests and financial goals. It forecasts future expenses by dissecting historical market trends and 
+upcoming developments. The research predicts housing Prices in Mumbai using linear regression, 
+with a minimum prediction error of 0.3713 [17]. 
+Fan, Cui and Zhong (2018) provide a method for predicting home values in Ames, Iowa, by 
+considering feature engineering, data processing, and integration with D.D. Cock's dataset and 
+Kaggle. com's competition. The algorithm ranks 35th out of 2221 results, with a small over -fitting, 
+and the RMSE of anticipated outcomes is 0.12019 following the logarithm of all test data [18]. 
+Wu (2017) examines how the economy and home values are related, with an emphasis on 
+objectively forecasting home prices. The study makes use of an open -source dataset from King 
+County, USA, which contains 21,613 house sales items and 20 explanatory characteristics. Several 
+feature selection techniques and extraction algorithms are compared, such as RF Selector, Lasso, 
+Ridge, and Recursive Feature Elimination. To extract features, Principal Component Analysis (PCA) 
+is used. With log transformation, feature r eduction, and parameter optimization, the SVR -built 
+model's accuracy increases from 0.65 to 0.86. The study reveals that when it comes to estimating 
+housing values in King County, USA, PCA-SVR and feature selection-SVR perform identically [19]. 
+Lu et al. (2017) a strategy for estimating the price of single- family homes based on variables such 
+as this study looks at the location, housing type, size, building year, and local amenities.  One of 
+their proposed regression models, a hybrid Lasso and Gradient boosting model, was utilized as the 
+primary kernel in the Kaggle competition "House Prices: Advanced Regression Techniques." 
+According to rankings, the approach is in the top one per cent of all competitive teams and individuals 
+[20]. 
+Table I offers a detailed judgment of AI-based ML regression mock-ups utilized for envisaging home 
+prices. It highlights key methodologies, datasets, findings, limitations, and directions for future 
+research, with an emphasis on integrating traditional and advanced ML techniques. 
+ 
+Table 1. Summary of Previous Work on Using Artificial Intelligence-Based Machine Learning 
+Regression Models for Predictions of Home Prices 
+Authors Dataset Methods Findings Limitations Future Work 
+[15] Chain house 
+network 
+(Shanghai 
+housing 
+statistics). 
+Web crawling 
+(JSON, 
+BeautifulSoup), 
+Feedforward 
+Neural Network 
+(Keras), Error 
+Backpropagation 
+Achieved 
+95.59% 
+accuracy in 
+relative error 
+with Gaussian 
+noise 
+Limited to one city, 
+lacks 
+generalizability and 
+feature diversity 
+Expand to multi -city 
+datasets, explore 
+more complex models 
+[16] Residential 
+housing with 
+micro-level 
+features 
+Simple Regression, 
+RF, SVM 
+All models had 
+R² > 0.9 
+No details on 
+robustness, small 
+feature set 
+Incorporate 
+macroeconomic 
+indicators, try 
+ensemble learning 
+[17] Mumbai 
+housing market 
+Linear Regression Achieved the 
+lowest 
+prediction error 
+(0.3713) 
+Market trends and 
+future 
+developments 
+treated statistically 
+Include dynamic 
+pricing and market 
+sentiment factors 
+[18] Kaggle Ames 
+dataset 
+Feature 
+Engineering, 
+Combination 
+Forecasting 
+RMSE of 
+0.12019, ranks 
+35th in Kaggle 
+competition 
+Focused on 
+leaderboard 
+ranking rather than 
+practical 
+applicability 
+Explore model 
+interpretability and 
+deployment feasibility 
+[19] King County, 
+USA (21,613 
+entries, 20 
+features) 
+SVR, RFE, Lasso, 
+Ridge, RF Selector, 
+PCA 
+Accuracy 
+improved from 
+0.65 to 0.86; 
+MSE = 0.04 
+No difference found 
+between PCA and 
+feature selection; 
+limited to King 
+County 
+Extend to larger/more 
+diverse datasets, and 
+compare deep 
+learning techniques 
+[20] Kaggle 
+(individual 
+house data) 
+Gradient Boosting 
+Regression using 
+Hybrid Lasso 
+Placed in the 
+top 1% of the 
+Kaggle 
+tournament 
+Limited dataset, 
+potential overfitting 
+in complex models 
+Explore larger feature 
+sets and apply to real-
+world market 
+forecasting 
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+408 
+METHODOLOGY 
+This section leverages AI -based ML regression approaches using the Volusia Property Sales 
+Dataset to develop a predictive model for estimating property values. The procedure starts with data 
+preparation, which includes cleaning and outlier detection/removal to improve data quality. Feature 
+engineering and selection are then conducted to identify and construct relevant attributes, followed 
+by transformation and target binning to maximize the inputs of the model. Subsets of the revised 
+dataset are used for testing and training. An XGBoost model, known for its robustness and accuracy, 
+is employed for classification or regression tasks depending on the objective. The model's 
+performance is assessed utilizing measures like R2, MSE, and MAE to determine prediction  
+accuracy and reliability. Finally, the results are interpreted to determine the model's accuracy in 
+forecasting property value. This comprehensive approach ensures a structured pipeline from raw 
+data to actionable insights, enhancing real estate analytics  for home price prediction as shown in 
+Figure 1. 
+ 
+Figure 1. Flowchart for Home Price Prediction Using Machine Learning 
+ 
+Data Collection 
+The real estate datasets utilized in this research were gathered from the publicly available Voluspa 
+County Property Appraiser website1. Maps, other related data, and an updated property sale 
+database are among the datasets. By Florida Statutes and the Substantive Regulations of the Florida 
+Department of Revenue, the database is updated every week. In particular, sales records and 
+property information is collected, including the property's advertised and closing values. This 
+research takes into account hous ing data from the previous five years, from January 1, 2015, to 
+November 13, 2019, with a particular property prerequisite. First, the database's 62,723 entries with 
+19 variables were taken out. The correlation matrix in Figure 2 illustrates the link between the feature 
+display. 
+Figure 2 displays a correlation matrix, which shows how several variables in a dataset relate to one 
+another. The colour intensity of each cell represents the degree and direction (positive or negative) 
+of the linear correlation between the two variables. Dark red represents significant positive 
+correlations, dark blue represents strong negative correlations, and lighter colors show weaker 
+connections. 
+ 
+Volusia Property Sales 
+Data 
+Data preprocessing  
+Outlier Detection And 
+Removal 
+Feature selection  
+Feature 
+Engineering 
+Training  
+ Testing  
+Evaluation metrics including R2 
+    
+Classification with 
+XGBoost model 
+Results  
+Data Cleaning 
+Feature 
+Transformation and 
+Target Binning 
+Data Splitting 
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+409 
+ 
+Figure 2. Correlation Matrix of the Dataset 
+ 
+ 
+Figure 3. Price distribution on Violin Plot 
+ 
+Figure 3 displays the distribution of 'price'. The wider sections show where prices are more common, 
+with a peak in the lower range. The plot is skewed right, meaning fewer high- priced properties. A 
+white dot marks the median, and the black bar shows the middle 50% of prices. 
+ 
+ 
+Figure 4. All Feature Dimensions Presented in 2D 
+
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+410 
+Figure 4 visualizes data points in 2D, where closer points are more similar in the original data. 
+Colours represent different ranges of a variable, and clusters of similar colours suggest that data 
+with close values for that variable are grouped together after dimensionality reduction. 
+Dataset Preprocessing 
+Data pre-processing is vital for ensuring quality input in ML models. This study, it involved removing 
+duplicates, dropping null values, detecting and removing outliers using Tukey’s IQR method, and 
+selecting relevant features through correlation and feature importance techniques. These steps are 
+described below: 
+Data Cleaning 
+The act of identifying and eliminating erroneous, corrupt, or unnecessary entries from a dataset in 
+order to enhance its quality and dependability for analysis or modelling is known as data cleaning. It 
+is a critical step in ensuring that the dataset is co rrect, consistent, and free of mistakes that might 
+harm model performance. 
+• Duplicate Entries Removed:  All duplicate rows were identified and eliminated to prevent 
+redundancy and avoid potential data bias during model training and evaluation. 
+• Null Values Dropped: Instead of using imputation techniques to estimate missing values, all rows 
+containing null entries were removed. Given the initial dataset size of approximately 62,723 records, 
+this approach was feasible and reduced the dataset to 50,809 clean and complete records, ensuring 
+data integrity without compromising model reliability. 
+Outlier Detection and Removal 
+Outlier detection and removal began with Cook’s Distance to identify influential data points. The Z-
+score method was tested but later discarded, as it flagged around 10% of the data as outliers, which 
+was excessive. The final approach used was Tukey’s IQR method, which proved more effective. 
+This method applied custom quantiles, setting Q1 at the 10th percentile and Q3 at the 90th 
+percentile, to bin values and remove outliers based on the interquartile range. 
+Feature Selection 
+Feature selection involved removing irrelevant or weakly correlated features, such as ZIP code, to 
+improve model performance. A Pearson Correlation Matrix was used to assess each feature's 
+applicability to the target variable. Furthermore, feature signific ance approaches using XGBoost 
+were applied to finalize a set of influential features for the model shown in Figure 5. 
+ 
+Figure 5. Feature Importance of 20 Features Using Xgboost Regressor 
+ 
+Feature Engineering 
+Feature engineering identifies key features and removes fewer valuable ones to create a more 
+efficient model. Most buyers purchase houses with two or three bedrooms for nuclear families, and 
+the price tends to increase with the number of bedrooms. However,  this relationship weakens for 
+
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+411 
+houses with 6 or 7 bedrooms, likely due to their rural locations. Housing transactions peak from May 
+to August, likely due to summer vacations, while November to February sees fewer transactions. 
+Feature Transformation and Target Binning 
+ 
+it = σ(Vixt + Wiht−1 + bi)     (1) 
+ 
+ft = σ(Vf xt + Wf h(t−1) + bf )      (2) 
+ 
+c˜t = tanh(Vcxt + Wch(t−1) + bc)    (3) 
+ 
+ct = ft   c(t−1) + it   ˜ct      (4) 
+ 
+ot = σ(Voxt + Woh(t−1) + bo)     (5) 
+ 
+ht = ot   tanh(ct)      (6) 
+ 
+where  V*,  W*,  and  b*  are  learnable  parameters,  h*  is  the hidden state, where * is used in place 
+of f, i, o, or c to represent the given gates and memory cell. Meanwhile, σ and tanh are the sigmoid 
+and tanh activation functions and is the element-wise product 
+The feature transformation and target binning process start by encoding selected features, like the 
+selling date and year are programmed into ys1, ys2, yb1, and yb2. Step 1 creates a price range 
+column with 100 bins, ranging from 0 to 100. After applying l evel encoding, the categorical feature 
+is converted to a numerical value, stored as Pricebot. In Step 2, the price feature is dropped, and 
+Pricebot is used as the target variable for training an XGBoost model, achieving an R-squared score 
+of 0.91. Step 3 involves feeding predicted Pricebot values as inputs, removing outliers using IQR, 
+and training the model on the actual price, which increases the R-squared score to 0.97. 
+Data Splitting 
+The dataset was split into two sets: training and testing. The training set was used to train the models, 
+which were then tested on the test set. The training set contains 80% of the data, while the test set 
+contains 20%. 
+Classification of XGBoost Model 
+XGBoost (eXtreme Gradient Boosting), established by Chen and Guestrin, is a high- performance 
+gradient tree boosting method that has proven highly effective in prediction tasks, like as estimating 
+housing prices. It works by constructing an ensemble of regression trees, with each tree correcting 
+the mistakes of the preceding one, resulting in a powerful model that captures complex patterns in 
+housing data [21]. At its core, XGBoost uses Cataloguing and Regression Trees (CARTs) as weak 
+learners. In the context of predicting home prices, these trees learn from attributes that include 
+location, year of construction, number of beds, square footage, and ease of access to facilities. Each 
+tree attempts to minimize a regularized objective function that helps to avoid overfitting by balancing 
+prediction accuracy and model complexity [22,23]. 
+Given a dataset of homes {D,y}, where D contains the home features and y is the actual home price, 
+the XGBoost model constructs an ensemble of p regression trees in Equation 7 . The prediction at 
+boosting round t is: 
+ 
+𝐹𝐹
+𝑡𝑡(𝑥𝑥) = ∑ 𝑓𝑓𝑖𝑖(𝑥𝑥)𝑡𝑡
+𝑖𝑖=0    (7) 
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+412 
+Here, each 𝐹𝐹𝑡𝑡(𝑥𝑥) is a regression tree trained to model the residual errors from the previous 
+predictions. This iterative learning from residuals allows XGBoost to incrementally improve its 
+accuracy. The model is trained to minimize the following loss at each step in Equation (8,9): 
+ 
+𝐿𝐿𝑡𝑡= ∑ 𝑙𝑙�𝑦𝑦𝑖𝑖, 𝐹𝐹𝑡𝑡−1(𝑥𝑥𝑖𝑖) + 𝑓𝑓𝑡𝑡(𝑥𝑥𝑖𝑖)� + Ω(𝑓𝑓𝑡𝑡)𝑛𝑛
+𝑖𝑖=1    (8) 
+ 
+Ω(𝑓𝑓𝑡𝑡) = 𝑦𝑦𝑦𝑦+
+𝜆𝜆||𝑤𝑤||2
+2    (9) 
+ 
+W
+ith 𝑦𝑦, 𝑤𝑤 r
+epresenting the number 𝑙𝑙 is a differentiable complex loss function between the 𝑖𝑖-th 
+outcome 𝑦𝑦𝑖𝑖 and
+ the ( 𝑡𝑡 − 1) -th ensemble's predicted 𝑖𝑖-th outcome 𝐹𝐹
+𝑡𝑡−1(𝒙𝒙𝒙𝒙)
+ and Ω(𝑓𝑓𝑡𝑡).
+ 𝛾𝛾 and 𝜆𝜆 are 
+the regularization and minimum loss hyperparameters of XGBoost, respectively [24]. 
+P
+erformance Metrics  
+Performance metrics are a critical component of every machine -learning pipeline. In the case of 
+regression tasks such as home price prediction, the model's concert was evaluated using R² 
+coefficient of determination, MSE, and MAE [25]. 
+R² 
+The R² coefficient, determined as the modification ratio in the dependent variable that may be 
+expected from the independent variable(s), is represented as follows Equation 10 [26]. 
+ 
+𝑅𝑅2 = 1 −
+𝑆𝑆𝑆𝑆𝑟𝑟𝑟𝑟𝑟𝑟
+𝑆𝑆𝑆𝑆𝑡𝑡𝑡𝑡𝑡𝑡
+   ( 10) 
+ 
+MSE 
+MSE is the average mistake. It is the average of the sum of squares of the difference between the 
+expected and actual values expressed in Equation 11 [27]. 
+ 
+𝑀𝑀𝑀𝑀𝑀𝑀=
+1
+𝑛𝑛∑ (𝑌𝑌𝚤𝚤� − 𝑌𝑌𝑖𝑖)2𝑛𝑛
+𝑖𝑖=1    (11) 
+ 
+MAE 
+MAE calculate the dependent variable that may be expected from the independent variable [28]. 
+MAE is helpful for quantifying errors in certain units. MAE values are computed using Equation (12). 
+ 
+𝑀𝑀𝑀𝑀𝑀𝑀=
+∑ |𝑦𝑦𝑖𝑖−𝑥𝑥𝑖𝑖|𝑛𝑛
+𝑖𝑖=1
+𝑛𝑛    (12) 
+ 
+RESULTS & DISCUSSION 
+This study assesses the effectiveness of proposed regression models for a machine-learning-based 
+prediction of the home prices. Experiments were performed using Python 3 with the use of such 
+libraries as XGBoost and Scikit-Learn in a 64-bit Ubuntu system with an Intel Core i7 processor (3.80 
+GHz, six-core) and 16 GB of RAM. The outstanding performance of XGBoost model in predicting 
+home prices indicated in Table II is impressive. It had a value of R² of 97%, thus a high predictive 
+power. MSE of 8.17 and MAE of 4.03 indicates little deviation from obtained values and confirms its 
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+413 
+accuracy for predicting the home prices. These metrics emphasize the ability of the model to give 
+accurate and consistent price prediction in the real world uses. 
+ 
+Table 2. Performance of XGBoost Model for Home Price Prediction 
+Measures XGBoost 
+R² 97  
+MSE  8.17 
+MAE  4.03 
+ 
+ 
+Figure 6. Performance of Xgboost Model for Home Price Prediction 
+ 
+This bar chart in Figure 6 shows how an XGBoost model will perform for home price prediction with 
+three metrics. The strong fit is suggested by R2 value of 97%. For MSE, the value of 8.17 is obtained, 
+which is a reasonably small value. Regarding the MAE, the value of 4.03 is obtained, which is also 
+a r elatively small value. Overall, these metrics indicate that the XGBoost model is useful for 
+predicting prices of homes. 
+ 
+ 
+Figure 7. Residuals for Xgboost Regressor Model 
+ 
+Figure 7 is the residuals plot for an XGB Regressor in house price prediction, for which there is a 
+difference between actual and predicted prices. Training data residuals (blue) present an R2 of 0.996 
+and an R2 test data residuals (green) of 0.968, which both show a strong fit of the model. The random 
+residuals around zero indicate unbiased prediction at various levels of house prices. As shown on 
+the right the histograms, these prediction errors are distributed as shown for both data sets. 
+97
+8.17 4.03
+-50
+0
+50
+100
+150
+R² MSE MAE
+In %
+Metrics
+
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+414 
+ 
+Figure 8. Prediction Error for Xgboost Model 
+ 
+This scatter plot in Figure 8 depicts the comparisons between the predicted against the actual house 
+prices in an XGB Regressor model. The blue dots are close to the dashed "identity” line thus 
+representing valid predictions. The best fit line is almost al igned to the identity line. A strong 
+correlation is confirmed by R-squared value of 0.968, that is the model predicts the prices of houses 
+well. 
+ 
+COMPARATIVE ANALYSIS 
+This section is A comparative study of several ML models used for the price predicting of houses. 
+Table III presents different models’ performance comparisons in terms of R² values in a real estate 
+dataset. The RF model performed well, with an R² of 87%, as it can cope with complex data. The 
+ANN was next with an R² of 84 % which represented not as strong level of predictive capability as 
+for the RF model, yet is very strong but slightly weaker than the RF model. However, XGBoost model 
+had the best R² of 97% , meaning its performance in identifying intricate patterns and generating 
+accurate home prices’ prediction was optimal. 
+ 
+Table 3. Comparative analysis of Home Price prediction using ML-based models 
+Models R² 
+XGBoost 97 
+RF [29] 87 
+ANN [30] 84 
+ 
+The proposed technique of the XGBoost-based system outperforms other ML models for the home 
+prices prediction task with a considerable margin. It has relatively better predictive accuracy than RF 
+and ANN. Different from the conventional ones, XGBoost manages to exploit highly nonlinear 
+relationships without lengthy tuning. Its robustness is overall ameliorated by sophisticated pre -
+processing methods such as isolation of outliers using Tukey’s IQR and correlation- based feature 
+selection, and smart target binning. When such steps are taken, the resulting model is the absence 
+of noise and redundancy makes it steadier and more trustworthy. The model generalizes reasonably 
+well to the unseen data with small amounts of over-fitting, and hence can be used in live real estate 
+applications. Its scalabil ity and good performance make it a top remedy for dynamic market 
+conditions and large-scale housing datasets. 
+ 
+CONCLUSION & FUTURE WORK 
+The implementation of the ML technique, in particular, the XGBoost regression model, achieved an 
+incredible amount of accuracy in terms of predicting home prices by using the real-world data on the 
+
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+415 
+property. With an R² score of 0.97, having an MSE of 8.17 and MAE of 4.03, the model was 
+exceptionally effective at modeling non-linear relationships of real estate features. Such performance 
+exceeded the one of the other models, tested, like RF (R² = 87) and ANN (R² = 84). Some of the 
+main factors that contributed to high performance are the well-performed Tukey’s IQR for the outlier’s 
+removal, outstanding selection of features, and the innovative two-step target binning technique that 
+increased the predic tion granularity. These findings bring to the fore the ability of AI -powered 
+techniques to improve the valuation accuracy, help investors, policy makers and buyers make 
+informed decisions predicated on data. Besides, the suggested approach is scalable and adaptable 
+to a wider geographical deployment and different economic environments. Subsequent work will look 
+at incorporating macroeconomic measures like interest rates and employment reports to enhance 
+the set of features. Besides, the interpretation of models can also be improved with the help of 
+Explainable AI (XAI) methods, guaranteeing reliability and openness. Expansion of the approach to 
+multi-regional datasets and usage of ensemble learning techniques can better polish predictive skills 
+and generalizability. 
+ 
+REFERENCES 
+[1] A. Varma, A. Sarma, S. Doshi, and R. Nair, “House price prediction using machine learning 
+and neural networks,” in 2018 second international conference on inventive communication and 
+computational technologies (ICICCT), 2018, pp. 1936–1939. 
+[2] B. Park and J. K. Bae, “Using machine learning algorithms for housing price prediction: The 
+case of Fairfax County, Virginia housing data,” Expert Syst. Appl. , vol. 42, no. 6, pp. 2928– 2934, 
+Apr. 2015, doi: 10.1016/j.eswa.2014.11.040. 
+[3] L. Wu and E. Brynjolfsson, “The future of prediction: How Google searches foreshadow 
+housing prices and sales,” in Economic analysis of the digital economy, University of Chicago Press, 
+2015, pp. 89–118. 
+[4] H. Selim, “Determinants of house prices in Turkey: Hedonic regression versus artificial neural 
+network,” Expert Syst. Appl., vol. 36, no. 2, pp. 2843–2852, 2009. 
+[5] A. S. Ravikumar, “Real estate price prediction using machine learning,” Dublin, National 
+College of Ireland, 2017. 
+[6] N. Agarwal, S. Gupta, and S. Gupta, “A comparative study on discrete wavelet transform with 
+different methods,” in 2016 Symposium on Colossal Data Analysis and Networking (CDAN) , Mar. 
+2016, pp. 1–6. doi: 10.1109/CDAN.2016.7570878. 
+[7] B. Afonso, L. Melo, W. Oliveira, S. Sousa, and L. Berton, “Housing prices prediction with a 
+deep learning and random forest ensemble,” in Encontro Nacional de Inteligência Artificial e 
+Computacional (ENIAC), 2019, pp. 389–400. 
+[8] A. J. Bency, S. Rallapalli, R. K. Ganti, M. Srivatsa, and B. S. Manjunath, “Beyond spatial 
+auto-regressive models: Predicting housing prices with satellite imagery,” in 2017 IEEE winter 
+conference on applications of computer vision (WACV), 2017, pp. 320–329. 
+[9] V. Kolluri, “A Comprehensive Analysis On Explainable And Ethical Machine: Demystifying 
+Advances In Artificial Intelligence,” TIJER - Int. Res. Journals, vol. 2, no. 7, pp. 2349–9249, 2015. 
+[10] M. De Nadai and B. Lepri, “The economic value of neighborhoods: Predicting real estate 
+prices from the urban environment,” in 2018 IEEE 5th international conference on data science and 
+advanced analytics (DSAA), 2018, pp. 323–330. 
+[11] A. A. Neloy, H. M. S. Haque, and M. M. Ul Islam, “Ensemble Learning Based Rental 
+Apartment Price Prediction Model by Categorical Features Factoring,” in Proceedings of the 2019 
+11th International Conference on Machine Learning and Computing, New York, NY, USA: ACM, 
+Feb. 2019, pp. 350–356. doi: 10.1145/3318299.3318377. 
+[12] S. S. S. Neeli, “Serverless Databases: A Cost-Effective and Scalable Solution,” Int. J. Innov. 
+Res. Eng. Multidiscip. Phys. Sci., vol. 7, no. 6, p. 7, 2019. 
+ 
+ 
+   
+www.ejaset.com                                          EJASET                                          2025 | Volume 3 | Number 3 
+416 
+[13] R. Manjula, S. Jain, S. Srivastava, and P. R. Kher, “Real estate value prediction using 
+multivariate regression models,” in IOP Conference Series: Materials Science and Engineering, 
+2017, p. 42098. 
+[14] R. Tarafdar, “Algorithms for the Majority Problem,” Proc. 2017 Int. Conf. Found. Comput. Sci., 
+2017. 
+[15] Z. Jiang and G. Shen, “Prediction of House Price Based on The Back Propagation Neural 
+Network in The Keras Deep Learning Framework,” in 2019 6th International Conference on Systems 
+and Informatics (ICSAI), 2019, pp. 1408–1412. doi: 10.1109/ICSAI48974.2019.9010071. 
+[16] Y. Luo, “Residential Asset Pricing Prediction using Machine Learning,” in 2019 International 
+Conference on Economic Management and Model Engineering (ICEMME), 2019, pp. 193–198. doi: 
+10.1109/ICEMME49371.2019.00046. 
+[17] N. N. Ghosalkar and S. N. Dhage, “Real Estate Value Prediction Using Linear Regression,” 
+in 2018 Fourth International Conference on Computing Communication Control and Automation 
+(ICCUBEA), 2018, pp. 1–5. doi: 10.1109/ICCUBEA.2018.8697639. 
+[18] C. Fan, Z. Cui, and X. Zhong, “House Prices Prediction with Machine Learning Algorithms,” 
+in Proceedings of the 2018 10th International Conference on Machine Learning and Computing, New 
+York, NY, USA: ACM, Feb. 2018, pp. 6–10. doi: 10.1145/3195106.3195133. 
+[19] J. Y. Wu, “Housing price prediction using support vector regression,” 2017. 
+[20] S. Lu, Z. Li, Z. Qin, X. Yang, and R. S. M. Goh, “A hybrid regression technique for house 
+prices prediction,” in 2017 IEEE International Conference on Industrial Engineering and Engineering 
+Management (IEEM), IEEE, Dec. 2017, pp. 319–323. doi: 10.1109/IEEM.2017.8289904. 
+[21] M. A. Fauzan and H. Murfi, “The accuracy of XGBoost for insurance claim prediction,” Int. J. 
+Adv. Soft Comput. its Appl., vol. 10, no. 2, 2018. 
+[22] A. V. Hazarika and Anju, “Extreme Gradient Boosting using Squared Logistics Loss function,” 
+Int. J. Sci. Dev. Res., vol. 2, no. 8, pp. 54–61, 2017. 
+[23] A. H. Anju, “Extreme Gradient Boosting using Squared Logistics Loss function,” Int. J. Sci. 
+Dev. Res., vol. 2, no. 8, pp. 54–61, 2017. 
+[24] T. Chen and C. Guestrin, “XGBoost: A Scalable Tree Boosting System,” in Proceedings of 
+the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining, New 
+York, NY, USA: ACM, Aug. 2016, pp. 785–794. doi: 10.1145/2939672.2939785. 
+[25] S. Singamsetty, “Fuzzy-Optimized Lightweight Cyber -Attack Detection For Secure Edge-
+Based Iot,” J. Crit. Rev., vol. 6, no. 07, pp. 1028–1033, 2019, doi: 10.53555/jcr.v6:i7.13156. 
+[26] S. Nakagawa, P. C. D. Johnson, and H. Schielzeth, “The coefficient of determination R2 and 
+intra-class correlation coefficient from generalized linear mixed -effects models revisited and 
+expanded,” J. R. Soc. Interface, 2017, doi: 10.1098/rsif.2017.0213. 
+[27] A. V. G. Vijayaprabhuvel Rajavel, B Goverdhenan, “Eye Gaze Pecularities Detection in 
+Children with Autism using a Head-free,” p. 2016, 2016. 
+[28] T. Chai and R. R. Draxler, “Root mean square error (RMSE) or mean absolute error (MAE)? 
+– Arguments against avoiding RMSE in the literature,” Geosci. Model Dev., vol. 7, no. 3, pp. 1247–
+1250, Jun. 2014, doi: 10.5194/gmd-7-1247-2014. 
+[29] I. Engström and A. Ihre, “Predicting house prices with machine learning methods,” 
+Examensarbete Inom Tek. Grundnivå, 15 Hp Stock. Sverige 2019, 2019. 
+[30] A. N. Khobragade, N. Maheswari, and M. Sivagami, “Analyzing the housing rate in a real 
+estate informative system: a prediction analysis,” Int. J. Civ. Engine. Technol, vol. 9, no. 5, pp. 1156–
+1164, 2018. 
+ 
+ 

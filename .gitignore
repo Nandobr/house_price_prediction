@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Data (Ignore large files)
+data/
+*.csv
+*.accdb
+*.xlsx
+*.pdf
+
+# Exceptions (Track these important records)
+!experiments.csv
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
