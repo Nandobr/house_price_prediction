@@ -1,4 +1,8 @@
 pandas
-sqlalchemy
+numpy
 scikit-learn
 xgboost
+matplotlib
+seaborn
+shap
+pypdf

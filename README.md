@@ -20,14 +20,15 @@ The workflow is modularized into three sequential scripts:
 | :--- | :--- | :--- |
 | **`01_preprocess_data.py`** | Load Raw CSVs, Merge Tables, **Remove Leakage** (2026 Tax Values). | `processed_data.csv` |
 | **`02_feature_engineering.py`** | Generate Features (Ratios, Polynomials, Date Parts). | `engineered_features.csv` |
-| **`03_train_model.py`** | Run **5-Fold Cross-Validation** with Target Encoding inside folds. Log results. | `experiments.csv` |
+| **`03_train_model.py`** | Run **5-Fold Cross-Validation** using a 2-Stage Binning + Regression approach to evaluate theoretical maximum performance. | `experiments.csv` |
+| **`04_export_model.py`** | Train a robust **Single-Stage XGBoost Regressor** on the full dataset and export artifacts for the Streamlit App. | `../volusia_property_app/model_artifacts.pkl` |
 
 ## 🛠️ Installation
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/Nandobr/house_price_prediction.git
-    cd house_price_prediction
+    git clone <your-repo-url>
+    cd volusia_prediction
     ```
 
 2.  **Create a Virtual Environment** (Optional but recommended):

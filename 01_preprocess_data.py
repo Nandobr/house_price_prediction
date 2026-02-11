@@ -74,7 +74,7 @@ def load_and_merge_data(data_dir=DATA_DIR):
     parcel_path = os.path.join(data_dir, 'VCPA_CAMA_PARCEL.csv')
     if os.path.exists(parcel_path):
         print(f"Loading Parcel Data from {parcel_path}...")
-        use_cols = ['PARID', 'NBHD', 'LUC', 'LUC_DESC', 
+        use_cols = ['PARID', 'NBHD', 'NBHD_DESC', 'LUC', 'LUC_DESC', 
                     'APRLAND', 'APRBLDG', 'APRTOT', 
                     'SASD', 'NSASD', 'STXBL', 'NSTXBL', 'COTXBL', 'CITXBL']
         try:

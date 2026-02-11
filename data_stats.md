@@ -55,3 +55,25 @@
 - Price Mean: $267,905.68
 - Price Median: $84,000.00
 
+
+### Preprocessing Run: 2026-02-11 17:40:06
+**Raw Merged Data**
+- Shape: (864304, 34)
+- Price Mean: $267,905.68
+- Price Median: $84,000.00
+
+**Processed Data (Leakage Removed)**
+- Shape: (864304, 24)
+- Price Mean: $267,905.68
+- Price Median: $84,000.00
+
+
+### Feature Engineering Run: 2026-02-11 17:42:59
+**Input Data**
+- Shape: (864304, 24)
+- Columns: PARID, TAXYR, SALEDT, BOOK, PAGE, INSTRUNO, INSTRTYP, INSTRTYP_DESC, PRICE, SALETYPE, STEB, STEB_DESC, EXTWALL_DESC, YRBLT, RMBED, FIXBATH, ROOF_COVER_DESC, SFLA, TOTAL_AREA, STORIES, LUC, LUC_DESC, NBHD, NBHD_DESC
+
+**Engineered Data**
+- Shape: (864304, 33)
+- Columns: PARID, TAXYR, SALEDT, BOOK, PAGE, INSTRUNO, INSTRTYP, INSTRTYP_DESC, PRICE, SALETYPE, STEB, STEB_DESC, EXTWALL_DESC, YRBLT, RMBED, FIXBATH, ROOF_COVER_DESC, SFLA, TOTAL_AREA, STORIES, LUC, LUC_DESC, NBHD, NBHD_DESC, SaleYear, Month, HouseAge, HouseAge_Squared, SFLA_Squared, Efficiency_Ratio, Bed_Bath_Ratio, NBHD_Median_Size, Size_vs_NBHD
+

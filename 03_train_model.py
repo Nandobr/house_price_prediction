@@ -17,7 +17,7 @@ DEFAULT_START_YEAR = 2015
 DEFAULT_END_YEAR = 2019
 DEFAULT_FEATURES = [
     'SFLA', 'RMBED', 'YRBLT', 'NBHD', 'LUC', 'Month', 
-    'HouseAge_Squared', 'Efficiency_Ratio', 'Bed_Bath_Ratio',
+    'HouseAge_Squared', 'Bed_Bath_Ratio',
     'NBHD_Median_Size', 'Size_vs_NBHD', 'SFLA_Squared'
 ]
 DEFAULT_PARAMS = {
